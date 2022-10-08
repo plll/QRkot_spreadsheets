@@ -87,8 +87,8 @@ class CRUDCharityProject(CRUDBase):
         select_stmt = select(CharityProject).where(
             CharityProject.fully_invested
         )
-        #select_stmt_ordered = select_stmt.order_by(asc(CharityProject.close_date-CharityProject.create_date))
-        donations = await session.execute(select_stmt)
+        select_stmt_ordered = select_stmt.order_by(asc(CharityProject.close_date - CharityProject.create_date))
+        donations = await session.execute(select_stmt_ordered)
         return donations.scalars().all()
 
 

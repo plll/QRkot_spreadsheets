@@ -8,6 +8,7 @@ from app.core.google_client import get_service
 from app.core.user import current_superuser
 
 from app.crud.charity_project import charity_project_crud
+from app.schemas.charity_project import CharityProjectDB
 
 
 router = APIRouter()
@@ -15,7 +16,7 @@ router = APIRouter()
 
 @router.post(
     '/',
-    response_model=list[dict[str, int]],
+    response_model=list[CharityProjectDB],
     dependencies=[Depends(current_superuser)],
 )
 async def get_report(

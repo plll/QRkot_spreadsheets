@@ -26,7 +26,7 @@ async def create_new_donation(
         user: User = Depends(current_user),
 ):
     """Только для суперюзеров."""
-    setattr(donation, 'user_id', user.id)
+    setattr(donation, "user_id", user.id)
     return await donation_crud.create(donation, session)
 
 

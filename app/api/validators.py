@@ -62,5 +62,5 @@ async def check_update_amount(
     if project_investments > new_amount:
         raise HTTPException(
             status_code=HTTPStatus.BAD_REQUEST,
-            detail='Нельзя'
+            detail='Нельзя ставить новую сумму меньше уже собранной'
         )
